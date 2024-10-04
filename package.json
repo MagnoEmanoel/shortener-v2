@@ -1,0 +1,22 @@
+{
+  "name": "shortener",
+  "version": "1.0.0",
+  "description": "Encurtador de Links",
+  "main": "src/js/main.js",
+  "type": "module",
+  "scripts": {
+    "start": "live-server src",
+    "backend": "node api/shortener.js"
+  },
+  "author": "Seu Nome",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.21.0",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.0"
+  }
+}

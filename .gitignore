@@ -1,0 +1,14 @@
+# Ignorar diretório node_modules
+node_modules/
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos específicos do MacOS
+.DS_Store
+
+# Ignorar arquivos de variáveis de ambiente
+.env
+
+# Ignorar arquivos JavaScript individuais
+api/shortener.js
