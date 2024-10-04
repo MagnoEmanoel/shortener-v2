@@ -6,7 +6,7 @@
         "use": "@vercel/node"
       },
       {
-        "src": "dist/**/*",
+        "src": "index.html",
         "use": "@vercel/static-build"
       }
     ],
@@ -16,8 +16,20 @@
         "dest": "api/shortener.js"
       },
       {
-        "src": "/(.*)",
+        "src": "/",
         "dest": "/index.html"
+      },
+      {
+        "src": "/sobre",
+        "dest": "/sobre.html"
+      },
+      {
+        "src": "/qr-code",
+        "dest": "/qr-code.html"
+      },
+      {
+        "src": "/contato",
+        "dest": "/contato.html"
       }
     ]
   }
