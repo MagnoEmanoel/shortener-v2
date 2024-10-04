@@ -25,4 +25,4 @@ Este é um projeto pessoal de encurtador de links que permite inserir um URL e g
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seuusuario/encurtador-de-links.git
+   git clone https://github.com/MagnoEmanoel/shortener-v2.git
