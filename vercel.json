@@ -22,15 +22,15 @@
       "dest": "/src/contato.html"
     },
     {
-      "src": "/src/css/(.*)",
-      "dest": "/src/css/$1"
+      "src": "/css/(.*)",
+      "dest": "/css/$1"
     },
     {
-      "src": "/src/js/(.*)",
+      "src": "/js/(.*)",
       "dest": "/src/js/$1"
     },
     {
-      "src": "/src/assets/(.*)",
+      "src": "/assets/(.*)",
       "dest": "/src/assets/$1"
     },
     {
