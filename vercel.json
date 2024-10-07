@@ -7,19 +7,19 @@
     },
     {
       "src": "/",
-      "dest": "/src/index.html"
+      "dest": "/index.html"
     },
     {
       "src": "/sobre",
-      "dest": "/src/sobre.html"
+      "dest": "/sobre.html"
     },
     {
       "src": "/qr-code",
-      "dest": "/src/qr-code.html"
+      "dest": "/qr-code.html"
     },
     {
       "src": "/contato",
-      "dest": "/src/contato.html"
+      "dest": "/contato.html"
     },
     {
       "src": "/css/(.*)",
@@ -27,11 +27,11 @@
     },
     {
       "src": "/js/(.*)",
-      "dest": "/src/js/$1"
+      "dest": "/js/$1"
     },
     {
       "src": "/assets/(.*)",
-      "dest": "/src/assets/$1"
+      "dest": "/assets/$1"
     },
     {
       "handle": "filesystem"
