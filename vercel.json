@@ -22,23 +22,19 @@
       "dest": "/src/contato.html"
     },
     {
-      "src": "/css/(.*)",
+      "src": "/src/css/(.*)",
       "dest": "/src/css/$1"
     },
     {
-      "src": "/js/(.*)",
+      "src": "/src/js/(.*)",
       "dest": "/src/js/$1"
     },
     {
-      "src": "/assets/(.*)",
+      "src": "/src/assets/(.*)",
       "dest": "/src/assets/$1"
     },
     {
       "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/src/index.html"
     }
   ]
 }
