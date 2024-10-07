@@ -7,23 +7,19 @@
     },
     {
       "src": "/",
-      "dest": "/index.html"
+      "dest": "/src/index.html"
     },
     {
       "src": "/sobre",
-      "dest": "/sobre.html"
+      "dest": "/src/sobre.html"
     },
     {
       "src": "/qr-code",
-      "dest": "/qr-code.html"
+      "dest": "/src/qr-code.html"
     },
     {
       "src": "/contato",
-      "dest": "/contato.html"
-    },
-    {
-      "src": "/src/(.*)",
-      "dest": "/src/$1" 
+      "dest": "/src/contato.html"
     }
   ]
 }
