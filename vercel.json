@@ -20,10 +20,9 @@
     {
       "src": "/contato",
       "dest": "/src/contato.html"
+    },
+    {
+      "handle": "filesystem"
     }
-  ],
-  "static": {
-    "src": "src/css",
-    "dest": "/css"
-  }
+  ]
 }
