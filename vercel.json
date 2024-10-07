@@ -35,6 +35,10 @@
     },
     {
       "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/src/index.html"
     }
   ]
 }
