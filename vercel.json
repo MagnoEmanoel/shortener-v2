@@ -1,27 +1,29 @@
 {
-    "version": 2,
-
-    "routes": [
-      {
-        "src": "/api/(.*)",
-        "dest": "api/shortener.js"
-      },
-      {
-        "src": "/",
-        "dest": "/index.html"
-      },
-      {
-        "src": "/sobre",
-        "dest": "/sobre.html"
-      },
-      {
-        "src": "/qr-code",
-        "dest": "/qr-code.html"
-      },
-      {
-        "src": "/contato",
-        "dest": "/contato.html"
-      }
-    ]
+  "version": 2,
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "api/shortener.js"
+    },
+    {
+      "src": "/",
+      "dest": "/src/index.html"
+    },
+    {
+      "src": "/sobre",
+      "dest": "/src/sobre.html"
+    },
+    {
+      "src": "/qr-code",
+      "dest": "/src/qr-code.html"
+    },
+    {
+      "src": "/contato",
+      "dest": "/src/contato.html"
+    }
+  ],
+  "static": {
+    "src": "src/css",
+    "dest": "/css"
   }
-  
+}
