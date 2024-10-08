@@ -18,12 +18,6 @@
   "env": {
     "BITLY_TOKEN": "56931b2aaf10b2fa3e2e511c1372b11602a48641"
   },
-  "functions": {
-    "api/shortener.js": {
-      "memory": 128,
-      "maxDuration": 10
-    }
-  },
   "headers": [
     {
       "source": "/*",
