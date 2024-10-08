@@ -1,5 +1,6 @@
+// shortener.js
 import express from 'express';
-import fetch from 'node-fetch';
+import axios from 'axios';
 import dotenv from 'dotenv';
 import cors from 'cors';  // Middleware para CORS
 
@@ -26,13 +27,13 @@ app.post('/api/shorten', async (req, res) => {
         'Content-Type': 'application/json'
     };
 
-    const body = JSON.stringify({ long_url });
+    const body = { long_url };
 
     try {
-        const response = await fetch(apiUrl, { method: 'POST', headers, body });
-        const data = await response.json();
+        const response = await axios.post(apiUrl, body, { headers });
+        const data = response.data;
 
-        if (response.ok) {
+        if (response.status === 200) {
             console.log('URL encurtada com sucesso:', data.link);
             return res.status(200).json({ link: data.link });
         } else {
