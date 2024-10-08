@@ -5,24 +5,24 @@
   ],
   "routes": [
     {
+      "src": "/",
+      "dest": "index.html"
+    },
+    {
       "src": "/api/(.*)",
       "dest": "api/shortener.js"
     },
     {
-      "src": "/",
-      "dest": "/index.html"
-    },
-    {
       "src": "/sobre",
-      "dest": "/sobre.html"
+      "dest": "sobre.html"
     },
     {
       "src": "/qr-code",
-      "dest": "/qr-code.html"
+      "dest": "qr-code.html"
     },
     {
       "src": "/contato",
-      "dest": "/contato.html"
+      "dest": "contato.html"
     },
     {
       "src": "/css/(.*)",
