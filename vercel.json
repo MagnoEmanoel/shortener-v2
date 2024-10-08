@@ -3,17 +3,16 @@
   "builds": [
     { "src": "api/shortener.js", "use": "@vercel/node" }
   ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/api/shortener.js" },
-    { "src": "/", "dest": "/src/index.html" },
-    { "src": "/sobre", "dest": "/src/sobre.html" },
-    { "src": "/qr-code", "dest": "/src/qr-code.html" },
-    { "src": "/contato", "dest": "/src/contato.html" },
-    { "src": "/src/css/(.*)", "dest": "/src/css/$1" },
-    { "src": "/src/js/(.*)", "dest": "/src/js/$1" },
-    { "src": "/assets/(.*)", "dest": "/assets/$1" },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/src/404.html" }
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/shortener.js" },
+    { "source": "/", "destination": "/src/index.html" },
+    { "source": "/sobre", "destination": "/src/sobre.html" },
+    { "source": "/qr-code", "destination": "/src/qr-code.html" },
+    { "source": "/contato", "destination": "/src/contato.html" },
+    { "source": "/src/css/(.*)", "destination": "/src/css/$1" },
+    { "source": "/src/js/(.*)", "destination": "/src/js/$1" },
+    { "source": "/assets/(.*)", "destination": "/assets/$1" },
+    { "source": "/(.*)", "destination": "/src/404.html" }
   ],
   "env": {
     "BITLY_TOKEN": "56931b2aaf10b2fa3e2e511c1372b11602a48641"
