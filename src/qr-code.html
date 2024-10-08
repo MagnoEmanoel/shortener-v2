@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Encurtador de Link</title>
+        <link rel="stylesheet" href="./src/css/style.css">
+        <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    </head>
+<body>
+    <!-- Vídeo de Fundo -->
+    <video autoplay muted loop id="background-video">
+        <source src="/assets/images/video3.mp4" type="video/mp4">
+        Seu navegador não suporta a reprodução de vídeos.
+    </video>
+
+    <!-- Barra de Navegação -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="/assets/images/chain.png" alt="Logo" class="logo-img">
+            <a href="#">Encurtador de Links</a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+        <div class="menu-toggle" id="menu-toggle">
+            &#9776; <!-- Ícone do menu hamburguer -->
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <section class="form-section">
+            <label for="qr-url-input">Insira o URL para gerar o QR Code:</label>
+            <div class="input-container">
+                <input type="text" id="qr-url-input" placeholder="https://exemplo.com">
+            </div>
+            <div class="button-container">
+                <button id="gerar-qr-btn" class="generate-btn">Gerar QR Code</button>
+                <a href="index.html" class="back-btn">Voltar para o Encurtador de Link</a>
+            </div>
+            <div id="qr-code-container" class="qr-code-container"></div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <p>&copy; 2024 Encurtador de Links. Todos os direitos reservados.</p>
+        <p>Deseja criar uma landing page ou projeto personalizado para o seu negócio? Entre em contato pelo e-mail: <a href="mailto:email@outlook.com">email@outlook.com</a></p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/qr-code.js" type="module"></script>
+    <script src="js/menu-toggle.js" type="module"></script>
+</body>
+</html>
