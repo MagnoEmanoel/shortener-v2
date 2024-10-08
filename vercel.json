@@ -1,44 +1,38 @@
 {
   "version": 2,
+  "builds": [
+    { "src": "api/shortener.js", "use": "@vercel/node" }
+  ],
   "routes": [
+    { "src": "/api/(.*)", "dest": "/api/shortener.js" },
+    { "src": "/", "dest": "/src/index.html" },
+    { "src": "/sobre", "dest": "/src/sobre.html" },
+    { "src": "/qr-code", "dest": "/src/qr-code.html" },
+    { "src": "/contato", "dest": "/src/contato.html" },
+    { "src": "/src/css/(.*)", "dest": "/src/css/$1" },
+    { "src": "/src/js/(.*)", "dest": "/src/js/$1" },
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/src/404.html" }
+  ],
+  "env": {
+    "BITLY_TOKEN": "56931b2aaf10b2fa3e2e511c1372b11602a48641"
+  },
+  "functions": {
+    "api/shortener.js": {
+      "memory": 128,
+      "maxDuration": 10
+    }
+  },
+  "headers": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/shortener.js"
-    },
-    {
-      "src": "/",
-      "dest": "/src/index.html"
-    },
-    {
-      "src": "/sobre",
-      "dest": "/src/sobre.html"
-    },
-    {
-      "src": "/qr-code",
-      "dest": "/src/qr-code.html"
-    },
-    {
-      "src": "/contato",
-      "dest": "/src/contato.html"
-    },
-    {
-      "src": "/src/css/(.*)",
-      "dest": "/src/css/$1"
-    },
-    {
-      "src": "/src/js/(.*)",
-      "dest": "/src/js/$1"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/src/404.html"
+      "source": "/*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
     }
   ]
 }
