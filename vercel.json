@@ -3,7 +3,7 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "api/shortener.js"
+      "dest": "/api/shortener.js"
     },
     {
       "src": "/",
@@ -22,16 +22,16 @@
       "dest": "/contato.html"
     },
     {
-      "src": "/css/(.*)",
-      "dest": "src/css/$1"
+      "src": "/src/css/(.*)",
+      "dest": "/src/css/$1"
     },
     {
-      "src": "/js/(.*)",
-      "dest": "src/js/$1"
+      "src": "/src/js/(.*)",
+      "dest": "/src/js/$1"
     },
     {
       "src": "/assets/(.*)",
-      "dest": "assets/$1"
+      "dest": "/assets/$1"
     },
     {
       "handle": "filesystem"
