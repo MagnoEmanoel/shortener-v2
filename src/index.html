@@ -21,17 +21,18 @@
             <h1>Encurtador de Links</h1>
         </div>
         <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="sobre.html">Sobre</a>
-            <a href="contato.html">Contato</a>
+            <a href="#home">Home</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
+            <a href="#qr-code">QR Code</a>
         </nav>
         <div class="menu-toggle" id="menu-toggle">
             &#9776; <!-- Ícone do menu hamburguer -->
         </div>
     </header>
 
-    <!-- Conteúdo Principal -->
-    <main>
+    <!-- Seção Home -->
+    <main id="home">
         <section class="form-section">
             <h2>Insira o URL que deseja encurtar:</h2>
             <div class="input-container">
@@ -47,7 +48,6 @@
                     <input type="checkbox" id="qr-checkbox">
                     <label for="qr-checkbox">Gerar QR Code</label>
                 </div>
-                <a href="qr-code.html" class="qr-code-btn">Ir para o Gerador de QR Code</a>
             </div>
             
             <h2>Resultado:</h2>
@@ -60,14 +60,43 @@
         </section>
     </main>
 
+    <!-- Seção Sobre -->
+    <section id="sobre" class="form-section">
+        <h1>Sobre o Projeto</h1>
+        <p>Este é um projeto de encurtador de links que permite gerar URLs curtos e também criar QR Codes para facilitar o compartilhamento. Nosso objetivo é fornecer uma ferramenta prática e rápida para quem precisa encurtar e compartilhar links de forma eficiente.</p>
+    </section>
+
+    <!-- Seção Contato -->
+    <section id="contato" class="form-section">
+        <h1>Contato</h1>
+        <p>Entre em contato conosco pelos seguintes canais:</p>
+        <ul>
+            <li>Email: <a href="mailto:magno_emanoel@outlook.com">email@outlook.com</a></li>
+            <li>Telefone: (99) 9999-9999</li>
+        </ul>
+    </section>
+
+    <!-- Seção QR Code -->
+    <section id="qr-code" class="form-section">
+        <label for="qr-url-input">Insira o URL para gerar o QR Code:</label>
+        <div class="input-container">
+            <input type="text" id="qr-url-input" placeholder="https://exemplo.com">
+        </div>
+        <div class="button-container">
+            <button id="gerar-qr-btn" class="generate-btn">Gerar QR Code</button>
+        </div>
+        <div id="qr-code-container" class="qr-code-container"></div>
+    </section>
+
     <!-- Rodapé -->
     <footer class="footer">
         <p>&copy; 2024 Encurtador de Links. Todos os direitos reservados.</p>
         <p>Deseja criar uma landing page ou projeto personalizado para o seu negócio? Entre em contato pelo e-mail: <a href="mailto:email@outlook.com">email@outlook.com</a></p>
     </footer>
-<!-- Comentário para forçar novo commit -->
+
     <!-- Scripts -->
     <script src="js/main.js" type="module"></script>
     <script src="js/menu-toggle.js" type="module"></script>
+    <script src="js/qr-code.js" type="module"></script>
 </body>
 </html>
