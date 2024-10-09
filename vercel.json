@@ -44,11 +44,11 @@
       "destination": "/src/contato.html"
     },
     {
-      "source": "/src/css/(.*)",
+      "source": "/css/(.*)",
       "destination": "/src/css/$1"
     },
     {
-      "source": "/src/js/(.*)",
+      "source": "/js/(.*)",
       "destination": "/src/js/$1"
     },
     {
