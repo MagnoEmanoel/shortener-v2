@@ -1,16 +1,13 @@
 import express from 'express';
 import fetch from 'node-fetch';
 import dotenv from 'dotenv';
-import cors from 'cors';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import cors from 'cors';  // Middleware para CORS
 
 dotenv.config();  // Carrega as variáveis de ambiente do arquivo .env
 
 const app = express();
 app.use(cors());  // Permite requisições de outras origens
 app.use(express.json());
-app.use(express.static('src'));
 
 const PORT = process.env.PORT || 3000;
 const BITLY_TOKEN = process.env.BITLY_TOKEN;  // Token de API do Bitly armazenado em .env
@@ -45,13 +42,6 @@ app.post('/api/shorten', async (req, res) => {
         console.error('Erro ao encurtar URL:', error.message);
         return res.status(500).json({ error: `Erro ao encurtar URL: ${error.message}` });
     }
-});
-
-// Middleware para servir arquivos HTML
-app.get('*', (req, res) => {
-    const __filename = fileURLToPath(import.meta.url);
-    const __dirname = path.dirname(__filename);
-    res.sendFile(path.resolve(__dirname, '../src/index.html'));
 });
 
 app.listen(PORT, () => {
