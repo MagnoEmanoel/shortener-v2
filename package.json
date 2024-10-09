@@ -2,11 +2,12 @@
   "name": "shortener",
   "version": "1.0.0",
   "description": "Encurtador de Links",
-  "main": "src/js/main.js",
+  "main": "api/shortener.js",
   "type": "module",
   "scripts": {
-    "start": "live-server src",
-    "backend": "node api/shortener.js"
+    "start": "node api/shortener.js",
+    "backend": "node api/shortener.js",
+    "build": "echo 'No build needed for static deployment'"
   },
   "author": "Seu Nome",
   "license": "ISC",
@@ -18,5 +19,8 @@
   },
   "devDependencies": {
     "live-server": "^1.2.0"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
