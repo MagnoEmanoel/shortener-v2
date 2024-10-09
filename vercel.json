@@ -6,7 +6,7 @@
       "use": "@vercel/node"
     },
     {
-      "src": "src/index.html",
+      "src": "src/**/*.html",
       "use": "@vercel/static"
     },
     {
@@ -24,8 +24,24 @@
   ],
   "rewrites": [
     {
+      "source": "/api/(.*)",
+      "destination": "api/shortener.js"
+    },
+    {
       "source": "/",
       "destination": "/src/index.html"
+    },
+    {
+      "source": "/sobre",
+      "destination": "/src/sobre.html"
+    },
+    {
+      "source": "/qr-code",
+      "destination": "/src/qr-code.html"
+    },
+    {
+      "source": "/contato",
+      "destination": "/src/contato.html"
     },
     {
       "source": "/css/(.*)",
