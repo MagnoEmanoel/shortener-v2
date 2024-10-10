@@ -9,7 +9,7 @@ const app = express();
 
 // Configuração de CORS para permitir requisições do domínio Vercel
 const corsOptions = {
-  origin: 'https://seu-dominio.vercel.app',  // Substitua pelo domínio correto da sua aplicação no Vercel
+  origin: '*',  // Permite todas as origens (teste inicial, pode ajustar conforme necessário)
   optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));  // Permite requisições de outras origens
@@ -18,6 +18,12 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 const BITLY_TOKEN = process.env.BITLY_TOKEN;  // Token de API do Bitly armazenado em .env
+
+// Verificar se o token está presente antes de usar
+if (!BITLY_TOKEN) {
+    console.error('Erro: BITLY_TOKEN não está configurado. Verifique o arquivo .env.');
+    process.exit(1);  // Encerra a aplicação se o token não estiver configurado
+}
 
 // Rota para encurtar URL
 app.post('/api/shorten', async (req, res) => {
@@ -36,6 +42,7 @@ app.post('/api/shorten', async (req, res) => {
     const body = JSON.stringify({ long_url });
 
     try {
+        console.log('Fazendo requisição à API Bitly com a URL:', long_url);  // Log adicional
         const response = await fetch(apiUrl, { method: 'POST', headers, body });
         const data = await response.json();
 
