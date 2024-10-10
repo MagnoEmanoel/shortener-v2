@@ -63,9 +63,6 @@
       "destination": "/src/404.html"
     }
   ],
-  "env": {
-    "BITLY_TOKEN": "56931b2aaf10b2fa3e2e511c1372b11602a48641"
-  },
   "headers": [
     {
       "source": "/(.*)",
