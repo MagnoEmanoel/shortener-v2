@@ -17,11 +17,11 @@ app.use(cors(corsOptions));  // Permite requisições de outras origens
 app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
-const BITLY_TOKEN = process.env.BITLY_TOKEN;  // Token de API do Bitly armazenado em .env
+const URLBAE_TOKEN = process.env.URLBAE_TOKEN || 'e71727f824f472569094e908bc8070f1';  // Chave de API da URLBae
 
 // Verificar se o token está presente antes de usar
-if (!BITLY_TOKEN) {
-    console.error('Erro: BITLY_TOKEN não está configurado. Verifique o arquivo .env.');
+if (!URLBAE_TOKEN) {
+    console.error('Erro: URLBAE_TOKEN não está configurado. Verifique o arquivo .env.');
     process.exit(1);  // Encerra a aplicação se o token não estiver configurado
 }
 
@@ -33,28 +33,25 @@ app.post('/api/shorten', async (req, res) => {
         return res.status(400).json({ error: 'URL é obrigatória.' });
     }
 
-    const apiUrl = 'https://api-ssl.bitly.com/v4/shorten';
+    const apiUrl = 'https://urlbae.com/api/shorten';
     const headers = {
-        'Authorization': `Bearer ${BITLY_TOKEN}`,
+        'Authorization': `Bearer ${URLBAE_TOKEN}`,
         'Content-Type': 'application/json'
     };
 
-    const body = JSON.stringify({ long_url });
+    const body = JSON.stringify({ url: long_url });
 
     try {
-        console.log('Fazendo requisição à API Bitly com a URL:', long_url);  // Log adicional
+        console.log('Fazendo requisição à API URLBae com a URL:', long_url);
         const response = await fetch(apiUrl, { method: 'POST', headers, body });
         const data = await response.json();
 
-        // Adicionar mais logs para verificar a resposta da API Bitly
-        console.log('Status da resposta:', response.status);
-        console.log('Dados da resposta:', data);
-
-        if (response.ok) {
-            console.log('URL encurtada com sucesso:', data.link);
-            return res.status(200).json({ link: data.link });
+        // Verificar se a resposta da API foi bem-sucedida
+        if (data.error === 0) {
+            console.log('URL encurtada com sucesso:', data.short_url);
+            return res.status(200).json({ link: data.short_url });
         } else {
-            throw new Error(data.description || 'Erro desconhecido');
+            throw new Error(data.message || 'Erro desconhecido');
         }
     } catch (error) {
         console.error('Erro ao encurtar URL:', error.message);
