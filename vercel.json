@@ -23,39 +23,43 @@
     }
   ],
   "rewrites": [
-  {
-    "source": "/",
-    "destination": "/index.html"
-  },
-  {
-    "source": "/sobre",
-    "destination": "/sobre.html"
-  },
-  {
-    "source": "/qr-code",
-    "destination": "/qr-code.html"
-  },
-  {
-    "source": "/contato",
-    "destination": "/contato.html"
-  },
-  {
-    "source": "/css/(.*)",
-    "destination": "/src/css/$1"
-  },
-  {
-    "source": "/js/(.*)",
-    "destination": "/src/js/$1"
-  },
-  {
-    "source": "/assets/(.*)",
-    "destination": "/assets/$1"
-  },
-  {
-    "source": "/(.*)",
-    "destination": "/404.html"
-  }
-],
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/shortener.js"
+    },
+    {
+      "source": "/",
+      "destination": "/src/index.html"
+    },
+    {
+      "source": "/sobre",
+      "destination": "/src/sobre.html"
+    },
+    {
+      "source": "/qr-code",
+      "destination": "/src/qr-code.html"
+    },
+    {
+      "source": "/contato",
+      "destination": "/src/contato.html"
+    },
+    {
+      "source": "/css/(.*)",
+      "destination": "/src/css/$1"
+    },
+    {
+      "source": "/js/(.*)",
+      "destination": "/src/js/$1"
+    },
+    {
+      "source": "/assets/(.*)",
+      "destination": "/assets/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/src/404.html"
+    }
+  ],
   "env": {
     "BITLY_TOKEN": "56931b2aaf10b2fa3e2e511c1372b11602a48641"
   },
