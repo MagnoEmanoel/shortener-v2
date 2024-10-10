@@ -70,8 +70,5 @@
         }
       ]
     }
-  ],
-  "env": {
-    "BITLY_TOKEN": "@bitly_token"
-  }
+  ]
 }
