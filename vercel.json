@@ -6,10 +6,6 @@
       "use": "@vercel/node"
     },
     {
-      "src": "*.html",
-      "use": "@vercel/static"
-    },
-    {
       "src": "src/**/*.html",
       "use": "@vercel/static"
     },
@@ -26,42 +22,42 @@
       "use": "@vercel/static"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "api/shortener.js"
+      "source": "/api/(.*)",
+      "destination": "/api/shortener.js"
     },
     {
-      "src": "/",
-      "dest": "index.html"
+      "source": "/",
+      "destination": "/src/index.html"
     },
     {
-      "src": "/contato",
-      "dest": "contato.html"
+      "source": "/sobre",
+      "destination": "/src/sobre.html"
     },
     {
-      "src": "/qr-code",
-      "dest": "qr-code.html"
+      "source": "/qr-code",
+      "destination": "/src/qr-code.html"
     },
     {
-      "src": "/sobre",
-      "dest": "sobre.html"
+      "source": "/contato",
+      "destination": "/src/contato.html"
     },
     {
-      "src": "/css/(.*)",
-      "dest": "src/css/$1"
+      "source": "/css/(.*)",
+      "destination": "/src/css/$1"
     },
     {
-      "src": "/js/(.*)",
-      "dest": "src/js/$1"
+      "source": "/js/(.*)",
+      "destination": "/src/js/$1"
     },
     {
-      "src": "/assets/(.*)",
-      "dest": "assets/$1"
+      "source": "/assets/(.*)",
+      "destination": "/assets/$1"
     },
     {
-      "src": "/(.*)",
-      "dest": "src/404.html"
+      "source": "/(.*)",
+      "destination": "/src/404.html"
     }
   ],
   "env": {
@@ -79,4 +75,3 @@
     }
   ]
 }
- 
