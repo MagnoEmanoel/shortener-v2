@@ -56,9 +56,6 @@
       "destination": "/assets/$1"
     },
     {
-      "handle": "filesystem"
-    },
-    {
       "source": "/(.*)",
       "destination": "/src/404.html"
     }
@@ -73,5 +70,8 @@
         }
       ]
     }
-  ]
+  ],
+  "env": {
+    "BITLY_TOKEN": "@bitly_token"
+  }
 }
