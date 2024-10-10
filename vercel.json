@@ -44,16 +44,19 @@
       "destination": "/src/contato.html"
     },
     {
-      "source": "/css/(.*)",
+      "source": "/src/css/(.*)",
       "destination": "/src/css/$1"
     },
     {
-      "source": "/js/(.*)",
+      "source": "/src/js/(.*)",
       "destination": "/src/js/$1"
     },
     {
       "source": "/assets/(.*)",
       "destination": "/assets/$1"
+    },
+    {
+      "handle": "filesystem"
     },
     {
       "source": "/(.*)",
