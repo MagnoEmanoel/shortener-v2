@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encurtador de Link</title>
-    <link rel="stylesheet" href="/src/css/style.css">
-    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <!-- Vídeo de Fundo -->
@@ -41,17 +41,19 @@
                 <label for="reference-input">Palavra de referência:</label>
                 <input type="text" id="reference-input" placeholder="exemplo">
                 
-                <button id="encurtar-btn">Encurtar</button>
+                <div class="button-container">
+                    <button id="encurtar-btn">Encurtar</button>
+                    <a href="qr-code.html" class="qr-code-btn">Ir para o Gerador de QR Code</a>
+                </div>
                 
                 <div>
                     <input type="checkbox" id="qr-checkbox">
                     <label for="qr-checkbox">Gerar QR Code</label>
                 </div>
-                <a href="qr-code.html" class="qr-code-btn">Ir para o Gerador de QR Code</a>
             </div>
             
             <h2>Resultado:</h2>
-            <div id="resultado" class="result-container">
+            <div id="resultado" class="result-container" style="display: none;">
                 <input type="text" id="url-output" value="" readonly>
                 <button id="copiar-btn">Copiar</button>
             </div>
@@ -65,9 +67,9 @@
         <p>&copy; 2024 Encurtador de Links. Todos os direitos reservados.</p>
         <p>Deseja criar uma landing page ou projeto personalizado para o seu negócio? Entre em contato pelo e-mail: <a href="mailto:email@outlook.com">email@outlook.com</a></p>
     </footer>
-<!-- Comentário para forçar novo commit -->
+
     <!-- Scripts -->
-    <script src="js/main.js" type="module"></script>
-    <script src="js/menu-toggle.js" type="module"></script>
+    <script src="/js/main.js" type="module"></script>
+    <script src="/js/menu-toggle.js" type="module"></script>
 </body>
 </html>
