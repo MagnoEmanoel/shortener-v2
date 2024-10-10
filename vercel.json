@@ -22,42 +22,42 @@
       "use": "@vercel/static"
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/shortener.js"
+      "src": "/api/(.*)",
+      "dest": "api/shortener.js"
     },
     {
-      "source": "/",
-      "destination": "/src/index.html"
+      "src": "/",
+      "dest": "src/index.html"
     },
     {
-      "source": "/sobre",
-      "destination": "/src/sobre.html"
+      "src": "/sobre",
+      "dest": "src/sobre.html"
     },
     {
-      "source": "/qr-code",
-      "destination": "/src/qr-code.html"
+      "src": "/qr-code",
+      "dest": "src/qr-code.html"
     },
     {
-      "source": "/contato",
-      "destination": "/src/contato.html"
+      "src": "/contato",
+      "dest": "src/contato.html"
     },
     {
-      "source": "/css/(.*)",
-      "destination": "/src/css/$1"
+      "src": "/css/(.*)",
+      "dest": "src/css/$1"
     },
     {
-      "source": "/js/(.*)",
-      "destination": "/src/js/$1"
+      "src": "/js/(.*)",
+      "dest": "src/js/$1"
     },
     {
-      "source": "/assets/(.*)",
-      "destination": "/assets/$1"
+      "src": "/assets/(.*)",
+      "dest": "assets/$1"
     },
     {
-      "source": "/(.*)",
-      "destination": "/src/404.html"
+      "src": "/(.*)",
+      "dest": "src/404.html"
     }
   ],
   "env": {
