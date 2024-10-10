@@ -15,7 +15,7 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.21.0",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2"  
   },
   "devDependencies": {
     "live-server": "^1.2.0"

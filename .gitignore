@@ -9,6 +9,3 @@ node_modules/
 
 # Ignorar arquivos de variáveis de ambiente
 .env
-
-# Ignorar arquivos JavaScript individuais
-api/shortener.js
