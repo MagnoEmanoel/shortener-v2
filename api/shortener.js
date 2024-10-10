@@ -1,7 +1,5 @@
 // api/shorten.js
 
-import fetch from 'node-fetch';
-
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
         res.status(405).json({ error: 'Method not allowed' });
@@ -18,7 +16,7 @@ export default async function handler(req, res) {
     const URLBAE_TOKEN = process.env.URLBAE_TOKEN;
 
     if (!URLBAE_TOKEN) {
-        res.status(500).json({ error: 'Erro: URLBAE_TOKEN não está configurado.' });
+        res.status(500).json({ error: 'URLBAE_TOKEN não está configurado.' });
         return;
     }
 
@@ -39,7 +37,7 @@ export default async function handler(req, res) {
             console.log('URL encurtada com sucesso:', data.short_url);
             res.status(200).json({ link: data.short_url });
         } else {
-            throw new Error(data.message || 'Erro desconhecido');
+            res.status(500).json({ error: data.message || 'Erro desconhecido' });
         }
     } catch (error) {
         console.error('Erro ao encurtar URL:', error.message);

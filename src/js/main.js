@@ -1,3 +1,5 @@
+// src/js/main.js
+
 import { copyToClipboard } from './copy.js';
 import { generateQRCode } from './qr-code.js';
 
@@ -27,21 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({ long_url: url })
             });
 
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`Erro: ${errorText}`);
+            }
+
             const data = await response.json();
 
-            if (response.ok) {
-                const shortUrl = data.link;
-                const customUrl = reference ? `${shortUrl}?ref=${encodeURIComponent(reference)}` : shortUrl;
-                urlOutput.value = customUrl;
-                resultado.style.display = 'flex';
+            const shortUrl = data.link;
+            const customUrl = reference ? `${shortUrl}?ref=${encodeURIComponent(reference)}` : shortUrl;
+            urlOutput.value = customUrl;
+            resultado.style.display = 'flex';
 
-                if (qrCheckbox.checked && customUrl) {
-                    generateQRCode(customUrl);
-                } else {
-                    qrCodeContainer.innerHTML = '';
-                }
+            if (qrCheckbox.checked && customUrl) {
+                generateQRCode(customUrl);
             } else {
-                throw new Error(data.error);
+                qrCodeContainer.innerHTML = '';
             }
         } catch (error) {
             alert(`Erro ao encurtar URL: ${error.message}`);

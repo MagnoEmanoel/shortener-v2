@@ -2,23 +2,15 @@
   "name": "shortener",
   "version": "1.0.0",
   "description": "Encurtador de Links",
-  "main": "api/shortener.js",
+  "main": "api/shorten.js",
   "type": "module",
   "scripts": {
-    "start": "node api/shortener.js",
-    "backend": "node api/shortener.js",
     "build": "echo 'No build needed for static deployment'"
   },
   "author": "Magno",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
-    "express": "^4.21.0",
-    "node-fetch": "^3.3.2"  
-  },
-  "devDependencies": {
-    "live-server": "^1.2.0"
+    "dotenv": "^10.0.0"
   },
   "engines": {
     "node": "18.x"
