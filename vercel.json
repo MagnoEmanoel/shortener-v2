@@ -29,19 +29,19 @@
     },
     {
       "source": "/",
-      "destination": "/src/index.html"
-    },
-    {
-      "source": "/sobre",
-      "destination": "/src/sobre.html"
-    },
-    {
-      "source": "/qr-code",
-      "destination": "/src/qr-code.html"
+      "destination": "/index.html"
     },
     {
       "source": "/contato",
-      "destination": "/src/contato.html"
+      "destination": "/contato.html"
+    },
+    {
+      "source": "/qr-code",
+      "destination": "/qr-code.html"
+    },
+    {
+      "source": "/sobre",
+      "destination": "/sobre.html"
     },
     {
       "source": "/css/(.*)",
