@@ -2,19 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/shortener.js",
+      "src": "api/**/*.js",
       "use": "@vercel/node"
     },
     {
-      "src": "src/**/*.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "src/css/**/*",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "src/js/**/*",
+      "src": "src/**/*",
       "use": "@vercel/static"
     },
     {
@@ -23,10 +15,6 @@
     }
   ],
   "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/shortener.js"
-    },
     {
       "source": "/",
       "destination": "/src/index.html"
@@ -44,31 +32,8 @@
       "destination": "/src/contato.html"
     },
     {
-      "source": "/css/(.*)",
-      "destination": "/src/css/$1"
-    },
-    {
-      "source": "/js/(.*)",
-      "destination": "/src/js/$1"
-    },
-    {
-      "source": "/assets/(.*)",
-      "destination": "/assets/$1"
-    },
-    {
       "source": "/(.*)",
-      "destination": "/src/404.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
+      "destination": "/src/$1"
     }
   ]
 }
