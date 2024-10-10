@@ -9,7 +9,7 @@
     "backend": "node api/shortener.js",
     "build": "echo 'No build needed for static deployment'"
   },
-  "author": "Seu Nome",
+  "author": "Magno",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
