@@ -6,7 +6,7 @@
       "use": "@vercel/node"
     },
     {
-      "src": "src/**/*.html",
+      "src": "*.html",
       "use": "@vercel/static"
     },
     {
@@ -29,19 +29,19 @@
     },
     {
       "source": "/",
-      "destination": "/src/index.html"
+      "destination": "/index.html"
     },
     {
       "source": "/sobre",
-      "destination": "/src/sobre.html"
+      "destination": "/sobre.html"
     },
     {
       "source": "/qr-code",
-      "destination": "/src/qr-code.html"
+      "destination": "/qr-code.html"
     },
     {
       "source": "/contato",
-      "destination": "/src/contato.html"
+      "destination": "/contato.html"
     },
     {
       "source": "/css/(.*)",
@@ -57,7 +57,7 @@
     },
     {
       "source": "/(.*)",
-      "destination": "/src/404.html"
+      "destination": "/404.html"
     }
   ],
   "env": {
