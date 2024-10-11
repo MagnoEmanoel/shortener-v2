@@ -37,7 +37,8 @@ export default async function handler(req, res) {
         const response = await fetch(apiUrl, { method: 'POST', headers, body });
 
         if (!response.ok) {
-            console.log(`Erro na requisição à API. Status: ${response.status}`);
+            const errorText = await response.text();
+            console.error(`Erro na requisição à API. Status: ${response.status}, Mensagem: ${errorText}`);
             res.status(response.status).json({ error: 'Erro ao encurtar a URL' });
             return;
         }

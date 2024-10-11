@@ -1,5 +1,3 @@
-// src/js/main.js
-
 import { copyToClipboard } from './copy.js';
 import { generateQRCode } from './qr-code.js';
 
@@ -23,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
+            console.log("Enviando solicitação para encurtar a URL:", url);
             const response = await fetch(`${window.location.origin}/api/shortener`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -31,10 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!response.ok) {
                 const errorText = await response.text();
+                console.error(`Erro na resposta da API. Status: ${response.status}, Mensagem: ${errorText}`);
                 throw new Error(`Erro: ${errorText}`);
             }
 
             const data = await response.json();
+            console.log("Resposta da API:", data);
 
             const shortUrl = data.link;
             const customUrl = reference ? `${shortUrl}?ref=${encodeURIComponent(reference)}` : shortUrl;
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 qrCodeContainer.innerHTML = '';
             }
         } catch (error) {
+            console.error(`Erro ao encurtar URL: ${error.message}`);
             alert(`Erro ao encurtar URL: ${error.message}`);
             resultado.style.display = 'none';
         }
@@ -59,13 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function isValidUrl(url) {
-    const pattern = new RegExp('^(https?:\\/\\/)?' + // protocolo
-        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domínio
-        '((\\d{1,3}\\.){3}\\d{1,3}))' + // IP (v4)
-        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // porta e caminho
-        '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-        '(\\#[-a-z\\d_]*)?$', 'i'); // fragmento
+    const pattern = new RegExp('^(https?:\/\/)?' + // protocolo
+        '((([a-z\d]([a-z\d-]*[a-z\d])*)\.?)+[a-z]{2,}|' + // domínio
+        '((\d{1,3}\.){3}\d{1,3}))' + // IP (v4)
+        '(\:\d+)?(\/[-a-z\d%_.~+]*)*' + // porta e caminho
+        '(\?[;&a-z\d%_.~+=-]*)?' + // query string
+        '(\#[-a-z\d_]*)?$', 'i'); // fragmento
     return !!pattern.test(url);
 }
-
-
