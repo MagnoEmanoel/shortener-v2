@@ -1,69 +1,38 @@
-// src/js/main.js
+encurtarBtn.addEventListener('click', async () => {
+    const url = urlInput.value.trim();
+    const reference = referenceInput.value.trim();
 
-import { copyToClipboard } from './copy.js';
-import { generateQRCode } from './qr-code.js';
+    if (!isValidUrl(url)) {
+        alert('Por favor, insira uma URL válida.');
+        return;
+    }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const urlInput = document.getElementById('url-input');
-    const referenceInput = document.getElementById('reference-input');
-    const encurtarBtn = document.getElementById('encurtar-btn');
-    const resultado = document.getElementById('resultado');
-    const urlOutput = document.getElementById('url-output');
-    const qrCheckbox = document.getElementById('qr-checkbox');
-    const qrCodeContainer = document.getElementById('qr-code-container');
-    const copiarBtn = document.getElementById('copiar-btn');
+    try {
+        const response = await fetch(`${window.location.origin}/api/shorten`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ long_url: url })
+        });
 
-    encurtarBtn.addEventListener('click', async () => {
-        const url = urlInput.value.trim();
-        const reference = referenceInput.value.trim();
-
-        if (!isValidUrl(url)) {
-            alert('Por favor, insira uma URL válida.');
-            return;
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Erro: ${errorText}`);
         }
 
-        try {
-            const response = await fetch('/api/shorten', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ long_url: url })
-            });
+        const data = await response.json();
 
-            if (!response.ok) {
-                const errorText = await response.text();
-                throw new Error(`Erro: ${errorText}`);
-            }
+        const shortUrl = data.link;
+        const customUrl = reference ? `${shortUrl}?ref=${encodeURIComponent(reference)}` : shortUrl;
+        urlOutput.value = customUrl;
+        resultado.style.display = 'flex';
 
-            const data = await response.json();
-
-            const shortUrl = data.link;
-            const customUrl = reference ? `${shortUrl}?ref=${encodeURIComponent(reference)}` : shortUrl;
-            urlOutput.value = customUrl;
-            resultado.style.display = 'flex';
-
-            if (qrCheckbox.checked && customUrl) {
-                generateQRCode(customUrl);
-            } else {
-                qrCodeContainer.innerHTML = '';
-            }
-        } catch (error) {
-            alert(`Erro ao encurtar URL: ${error.message}`);
-            resultado.style.display = 'none';
+        if (qrCheckbox.checked && customUrl) {
+            generateQRCode(customUrl);
+        } else {
+            qrCodeContainer.innerHTML = '';
         }
-    });
-
-    copiarBtn.addEventListener('click', () => {
-        copyToClipboard();
-        urlOutput.focus();
-    });
+    } catch (error) {
+        alert(`Erro ao encurtar URL: ${error.message}`);
+        resultado.style.display = 'none';
+    }
 });
-
-function isValidUrl(url) {
-    const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocolo
-      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domínio
-      '((\\d{1,3}\\.){3}\\d{1,3}))'+ // IP (v4)
-      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // porta e caminho
-      '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-      '(\\#[-a-z\\d_]*)?$','i'); // fragmento
-    return !!pattern.test(url);
-}
