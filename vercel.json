@@ -14,14 +14,12 @@
       "use": "@vercel/static"
     }
   ],
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1.js" },
-    { "source": "/", "destination": "/src/index.html" },
-    { "source": "/sobre", "destination": "/src/sobre.html" },
-    { "source": "/contato", "destination": "/src/contato.html" },
-    { "source": "/qr-code", "destination": "/src/qr-code.html" },
-    { "source": "/(.*)", "destination": "/src/$1" }
-  ],
-  "cleanUrls": true,
-  "trailingSlash": false
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1.js" },
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/sobre", "dest": "/sobre.html" },
+    { "src": "/contato", "dest": "/contato.html" },
+    { "src": "/qr-code", "dest": "/qr-code.html" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
 }

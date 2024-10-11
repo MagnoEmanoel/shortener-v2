@@ -1,4 +1,7 @@
-// api/shorten.js
+import fetch from 'node-fetch';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
@@ -30,13 +33,24 @@ export default async function handler(req, res) {
 
     try {
         console.log('Fazendo requisição à API URLBae com a URL:', long_url);
+
         const response = await fetch(apiUrl, { method: 'POST', headers, body });
+
+        if (!response.ok) {
+            console.log(`Erro na requisição à API. Status: ${response.status}`);
+            res.status(response.status).json({ error: 'Erro ao encurtar a URL' });
+            return;
+        }
+
         const data = await response.json();
+
+        console.log('Dados da API:', data);
 
         if (data.error === 0) {
             console.log('URL encurtada com sucesso:', data.short_url);
             res.status(200).json({ link: data.short_url });
         } else {
+            console.log('Erro retornado pela API:', data.message || 'Erro desconhecido');
             res.status(500).json({ error: data.message || 'Erro desconhecido' });
         }
     } catch (error) {
