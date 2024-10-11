@@ -16,10 +16,10 @@
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/$1.js" },
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/sobre", "dest": "/sobre.html" },
-    { "src": "/contato", "dest": "/contato.html" },
-    { "src": "/qr-code", "dest": "/qr-code.html" },
+    { "src": "/", "dest": "/src/index.html" },
+    { "src": "/sobre", "dest": "/src/sobre.html" },
+    { "src": "/contato", "dest": "/src/contato.html" },
+    { "src": "/qr-code", "dest": "/src/qr-code.html" },
     { "src": "/(.*)", "dest": "/$1" }
   ]
 }
